@@ -1,16 +1,48 @@
-# React + Vite
+# Md Yeamin Chowdhury – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website! This project showcases my skills and projects as a **full-stack web developer**, with a focus on **ReactJS** and the **MERN stack**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Modern & Responsive Design**: Built using ReactJS and Tailwind CSS for fully responsive, clean, and professional layouts.
+- **Interactive Animations**: Smooth hover effects and gradient transitions for buttons and project cards.
+- **Projects Section**: Highlights my key projects with descriptions, technologies used, and links.
+- **Contact Section**: Quick access to reach me via Email, Phone, WhatsApp, Discord, and Google Maps location.
+- **Single-Page Design**: Simple navigation with all sections on one page for easy access.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: ReactJS, Tailwind CSS
+- **Icons**: React Icons (SiDiscord, Mail, Phone, MapPin, etc.)
+- **Deployment**: Hosted on Firebase / Vercel / Netlify
 
-## Expanding the ESLint configuration
+## How to Run Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+```
+git clone <your-repo-link>
+```
+
+2. Navigate to the project folder:
+```
+cd <your-project-folder>
+```
+
+3. Install dependencies:
+```
+npm install
+```
+
+4. Start the development server:
+```
+npm start
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) to view in your browser.
+
+## Contact
+
+- **Email**: chowdhuryyeamin07@gmail.com
+- **Phone**: +8801701101422
+- **Discord**: [Your Discord Profile](https://discord.com/users/YOUR_DISCORD_LINK)
+- **Location**: Sylhet, Bangladesh
