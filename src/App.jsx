@@ -397,21 +397,21 @@ const Portfolio = () => {
         {/* About me  */}
         <section className="min-h-screen flex items-center px-6 py-20">
           <div className="max-w-4xl mx-auto w-full">
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               About Me
             </h2>
 
-            <div className="group relative overflow-hidden rounded-3xl p-12 border border-white/20 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30">
+            <div className="group relative overflow-hidden rounded-3xl p-8 md:p-12 border border-white/20 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30">
               {/* Animated Gradient Background on Hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <div className="relative flex gap-7 z-10">
+              <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-7 z-10">
                 <img
                   src={ProfilePic}
                   alt=""
-                  className="max-w-full pr-5 max-h-[300px] border-r-2 border-gray-700 group-hover:rotate-3 transition-transform duration-300"
+                  className="w-full md:w-1/3 max-h-[300px] border-b-2 md:border-b-0 md:border-r-2 border-gray-700 group-hover:rotate-3 transition-transform duration-300"
                 />
-                <p className="text-gray-300 text-lg mb-6 relative z-10">
+                <p className="text-gray-300 text-base md:text-lg relative z-10">
                   Hello! I’m <strong>Md Yeamin Chowdhury</strong>, a passionate
                   MERN Stack Developer from Sylhet, Bangladesh. I specialize in{" "}
                   <strong>ReactJS</strong> and have a strong interest in
