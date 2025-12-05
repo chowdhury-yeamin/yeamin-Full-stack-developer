@@ -151,7 +151,7 @@ const Portfolio = () => {
     {
       title: "CS — Ticket System",
       tech: "React.js",
-      desc: "Product management App for business",
+      desc: "Customer Problem solving System",
       link: "http://imminent-weight.surge.sh/",
     },
   ];
