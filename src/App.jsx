@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react"; 
 import {
   Github,
   Facebook,
@@ -63,7 +63,7 @@ const Portfolio = () => {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(156, 163, 175, ${0.3 + Math.random() * 0.3})`;
+        ctx.fillStyle = `rgba(100,150,255, ${0.3 + Math.random() * 0.2})`; // bluish tint
         ctx.fill();
 
         particles.forEach((other) => {
@@ -75,9 +75,9 @@ const Portfolio = () => {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(209, 213, 219, ${
+            ctx.strokeStyle = `rgba(150,180,255, ${
               0.15 * (1 - distance / 150)
-            })`;
+            })`; // bluish lines
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -92,104 +92,50 @@ const Portfolio = () => {
   }, [particles]);
 
   const skills = [
-    {
-      name: "React.js",
-      icon: <Code className="w-6 h-6" />,
-      level: 95,
-      color: "from-gray-500 to-gray-600",
-    },
-    {
-      name: "Node.js",
-      icon: <Database className="w-6 h-6" />,
-      level: 90,
-      color: "from-gray-600 to-gray-700",
-    },
-    {
-      name: "MongoDB",
-      icon: <Database className="w-6 h-6" />,
-      level: 88,
-      color: "from-gray-400 to-gray-600",
-    },
-    {
-      name: "Express.js",
-      icon: <Zap className="w-6 h-6" />,
-      level: 92,
-      color: "from-gray-500 to-gray-700",
-    },
-    {
-      name: "Frontend",
-      icon: <Palette className="w-6 h-6" />,
-      level: 97,
-      color: "from-gray-600 to-gray-800",
-    },
-    {
-      name: "Full Stack",
-      icon: <Sparkles className="w-6 h-6" />,
-      level: 93,
-      color: "from-gray-500 to-gray-700",
-    },
+    { name: "React.js", icon: <Code className="w-6 h-6" />, level: 95, color: "from-blue-400 to-blue-600" },
+    { name: "Node.js", icon: <Database className="w-6 h-6" />, level: 90, color: "from-green-400 to-green-600" },
+    { name: "MongoDB", icon: <Database className="w-6 h-6" />, level: 88, color: "from-green-300 to-green-500" },
+    { name: "Express.js", icon: <Zap className="w-6 h-6" />, level: 92, color: "from-yellow-400 to-yellow-500" },
+    { name: "Frontend", icon: <Palette className="w-6 h-6" />, level: 97, color: "from-purple-400 to-purple-600" },
+    { name: "Full Stack", icon: <Sparkles className="w-6 h-6" />, level: 93, color: "from-pink-400 to-pink-600" },
   ];
 
   const projects = [
-    {
-      title: "FinEase",
-      tech: "MERN Stack",
-      desc: "Personal finance management App",
-      link: "https://finease-client.netlify.app/",
-    },
-    {
-      title: "QuantumGear",
-      tech: "Next.js + Backend ",
-      desc: "Product management App for business",
-      link: "https://quantumgear-lyart.vercel.app/",
-    },
-    {
-      title: "CS — Ticket System",
-      tech: "React.js",
-      desc: "Customer Problem solving System",
-      link: "http://imminent-weight.surge.sh/",
-    },
+    { title: "FinEase", tech: "MERN Stack", desc: "Personal finance management App", link: "https://finease-client.netlify.app/" },
+    { title: "QuantumGear", tech: "Next.js + Backend", desc: "Product management App for business", link: "https://quantumgear-lyart.vercel.app/" },
+    { title: "CS — Ticket System", tech: "React.js", desc: "Customer Problem solving System", link: "http://imminent-weight.surge.sh/" },
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      <canvas
-        ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-0"
-      />
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-950">
+      <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
 
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div
-          className="absolute w-96 h-96 bg-gradient-to-r from-gray-500/30 to-gray-600/30 rounded-full blur-3xl animate-pulse"
+          className="absolute w-96 h-96 bg-gradient-to-r from-blue-600/30 to-purple-600/30 rounded-full blur-3xl animate-pulse"
           style={{
             top: "10%",
             left: "10%",
-            transform: `translate(${mousePos.x * 0.02}px, ${
-              mousePos.y * 0.02
-            }px)`,
+            transform: `translate(${mousePos.x * 0.02}px, ${mousePos.y * 0.02}px)`,
             transition: "transform 0.3s ease-out",
           }}
         />
         <div
-          className="absolute w-96 h-96 bg-gradient-to-r from-gray-400/30 to-gray-700/30 rounded-full blur-3xl animate-pulse"
+          className="absolute w-96 h-96 bg-gradient-to-r from-blue-500/30 to-indigo-600/30 rounded-full blur-3xl animate-pulse"
           style={{
             top: "60%",
             right: "10%",
-            transform: `translate(${-mousePos.x * 0.02}px, ${
-              -mousePos.y * 0.02
-            }px)`,
+            transform: `translate(${-mousePos.x * 0.02}px, ${-mousePos.y * 0.02}px)`,
             transition: "transform 0.3s ease-out",
             animationDelay: "1s",
           }}
         />
         <div
-          className="absolute w-96 h-96 bg-gradient-to-r from-gray-600/30 to-gray-500/30 rounded-full blur-3xl animate-pulse"
+          className="absolute w-96 h-96 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-full blur-3xl animate-pulse"
           style={{
             bottom: "10%",
             left: "50%",
-            transform: `translate(${mousePos.x * 0.015}px, ${
-              mousePos.y * 0.015
-            }px)`,
+            transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.015}px)`,
             transition: "transform 0.3s ease-out",
             animationDelay: "2s",
           }}
@@ -197,70 +143,52 @@ const Portfolio = () => {
       </div>
 
       <div className="relative z-10">
+        {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center px-6 py-20">
           <div className="max-w-6xl mx-auto text-center">
             <div
-              className="backdrop-blur-xl bg-white/10 rounded-3xl p-12 border border-white/20 shadow-2xl hover:shadow-gray-500/50 transition-all duration-500 hover:scale-105"
+              className="backdrop-blur-xl bg-white/10 rounded-3xl p-12 border border-white/20 shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 hover:scale-105"
               style={{
-                transform: `perspective(1000px) rotateX(${
-                  mousePos.y * 0.01
-                }deg) rotateY(${mousePos.x * 0.01}deg)`,
+                transform: `perspective(1000px) rotateX(${mousePos.y * 0.01}deg) rotateY(${mousePos.x * 0.01}deg)`,
                 transition: "transform 0.1s ease-out",
               }}
             >
               <div className="relative w-48 h-48 mx-auto mb-8 group">
                 <div
-                  className="absolute inset-0 bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 rounded-full animate-spin"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-spin"
                   style={{ animationDuration: "3s" }}
                 />
-                <div className="absolute inset-2 bg-gradient-to-br from-gray-900 to-gray-800 rounded-full flex items-center justify-center">
-                  <div className="text-6xl font-bold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent">
+                <div className="absolute inset-2 bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-full flex items-center justify-center">
+                  <div className="text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                     <img src={YeaminImg} alt="" />
                   </div>
                 </div>
-                <div className="absolute -inset-4 bg-gradient-to-r from-gray-500/50 to-gray-600/50 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/50 to-purple-500/50 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
-              <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent animate-pulse">
+              <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white/90 via-blue-300 to-purple-400 bg-clip-text text-transparent animate-pulse">
                 Md Yeamin Chowdhury
               </h1>
 
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-px w-12 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
-                <p className="text-2xl md:text-3xl font-semibold text-transparent bg-gradient-to-r from-gray-300 to-gray-400 bg-clip-text">
+                <div className="h-px w-12 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+                <p className="text-2xl md:text-3xl font-semibold text-transparent bg-gradient-to-r from-white/90 to-blue-300 bg-clip-text">
                   Full Stack Developer
                 </p>
-                <div className="h-px w-12 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
+                <div className="h-px w-12 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
               </div>
 
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                MERN Stack Developer specialized in React.js with a passion for
-                creating stunning frontend experiences. Trained at Programming
-                Hero, crafting digital excellence from Sylhet, Bangladesh.
+                MERN Stack Developer specialized in React.js with a passion for creating stunning frontend experiences. Trained at Programming Hero, crafting digital excellence from Sylhet, Bangladesh.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 mb-8">
                 {[
-                  {
-                    Icon: Rocket,
-                    text: "Frontend Expert",
-                    color: "from-gray-500 to-gray-600",
-                  },
-                  {
-                    Icon: Brain,
-                    text: "MERN Stack",
-                    color: "from-gray-600 to-gray-700",
-                  },
-                  {
-                    Icon: Sparkles,
-                    text: "UI/UX Focused",
-                    color: "from-gray-500 to-gray-700",
-                  },
+                  { Icon: Rocket, text: "Frontend Expert", color: "from-blue-400 to-blue-600" },
+                  { Icon: Brain, text: "MERN Stack", color: "from-purple-400 to-purple-600" },
+                  { Icon: Sparkles, text: "UI/UX Focused", color: "from-pink-400 to-pink-600" },
                 ].map(({ Icon, text, color }, i) => (
-                  <div
-                    key={i}
-                    className={`backdrop-blur-md bg-gradient-to-r ${color} bg-opacity-20 px-6 py-3 rounded-full border border-white/30 flex items-center gap-2 hover:scale-110 transition-transform duration-300`}
-                  >
+                  <div key={i} className={`backdrop-blur-md bg-gradient-to-r ${color} bg-opacity-20 px-6 py-3 rounded-full border border-white/30 flex items-center gap-2 hover:scale-110 transition-transform duration-300`}>
                     <Icon className="w-5 h-5 text-white" />
                     <span className="text-white font-medium">{text}</span>
                   </div>
@@ -268,22 +196,12 @@ const Portfolio = () => {
               </div>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a
-                  href="https://github.com/chowdhury-yeamin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group backdrop-blur-md bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl border border-white/30 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/50"
-                >
-                  <Github className="w-6 h-6 text-gray-300 group-hover:rotate-12 transition-transform" />
+                <a href="https://github.com/chowdhury-yeamin" target="_blank" rel="noopener noreferrer" className="group backdrop-blur-md bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl border border-white/30 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
+                  <Github className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
                   <span className="text-white font-semibold">GitHub</span>
                 </a>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61577632243284"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group backdrop-blur-md bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl border border-white/30 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/50"
-                >
-                  <Facebook className="w-6 h-6 text-gray-300 group-hover:rotate-12 transition-transform" />
+                <a href="https://www.facebook.com/profile.php?id=61577632243284" target="_blank" rel="noopener noreferrer" className="group backdrop-blur-md bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl border border-white/30 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50">
+                  <Facebook className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
                   <span className="text-white font-semibold">Facebook</span>
                 </a>
               </div>
@@ -291,83 +209,52 @@ const Portfolio = () => {
           </div>
         </section>
 
+        {/* Skills Section */}
         <section className="min-h-screen flex items-center px-6 py-20">
           <div className="max-w-6xl mx-auto w-full">
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-white/90 via-blue-300 to-purple-400 bg-clip-text text-transparent">
               Technical Expertise
             </h2>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {skills.map((skill, i) => (
-                <div
-                  key={i}
-                  className="group backdrop-blur-xl bg-white/10 rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl"
-                  style={{
-                    animationDelay: `${i * 0.1}s`,
-                  }}
-                >
+                <div key={i} className="group backdrop-blur-xl bg-white/10 rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl" style={{ animationDelay: `${i*0.1}s` }}>
                   <div className="flex items-center gap-4 mb-6">
-                    <div
-                      className={`p-4 rounded-xl bg-gradient-to-r ${skill.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                    >
+                    <div className={`p-4 rounded-xl bg-gradient-to-r ${skill.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       {skill.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-white">
-                      {skill.name}
-                    </h3>
+                    <h3 className="text-2xl font-bold text-white">{skill.name}</h3>
                   </div>
-
                   <div className="relative h-4 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out relative`}
-                      style={{ width: `${skill.level}%` }}
-                    >
+                    <div className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out relative`} style={{ width: `${skill.level}%` }}>
                       <div className="absolute inset-0 bg-white/30 animate-pulse" />
                     </div>
                   </div>
-                  <p className="text-right text-gray-300 mt-2 font-semibold">
-                    {skill.level}%
-                  </p>
+                  <p className="text-right text-white/80 mt-2 font-semibold">{skill.level}%</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Projects Section */}
         <section className="min-h-screen flex items-center px-6 py-20">
           <div className="max-w-6xl mx-auto w-full">
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Featured Projects
             </h2>
-
             <div className="grid md:grid-cols-3 gap-8">
               {projects.map((project, i) => (
-                <div
-                  key={i}
-                  className="group backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gray-500/30 relative overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-500/10 via-gray-600/10 to-gray-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+                <div key={i} className="group backdrop-blur-xl bg-gradient-to-br from-purple-600/10 via-blue-600/10 to-indigo-600/10 rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-blue-600/10 to-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
-                    <div className="w-16 h-16 bg-gradient-to-br from-gray-500 to-gray-700 rounded-xl mb-6 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl mb-6 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                       <Rocket className="w-8 h-8 text-white" />
                     </div>
-
-                    <h3 className="text-2xl font-bold text-white mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 font-semibold mb-4">
-                      {project.tech}
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      {project.desc}
-                    </p>
-
+                    <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                    <p className="text-blue-300 font-semibold mb-4">{project.tech}</p>
+                    <p className="text-white/80 leading-relaxed">{project.desc}</p>
                     <div className="mt-6 pt-6 border-t border-white/20">
-                      <a
-                        href={project.link}
-                        className="text-gray-300 font-semibold hover:text-gray-200 transition-colors flex items-center gap-2 group/btn"
-                      >
+                      <a href={project.link} className="text-blue-300 font-semibold hover:text-blue-400 transition-colors flex items-center gap-2 group/btn">
                         View Project
                         <Eye className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </a>
@@ -379,102 +266,59 @@ const Portfolio = () => {
           </div>
         </section>
 
+        {/* About Section */}
         <section className="min-h-screen flex items-center px-6 py-20">
           <div className="max-w-4xl mx-auto w-full">
-            <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">
               About Me
             </h2>
-
-            <div className="group relative overflow-hidden rounded-3xl p-8 md:p-12 border border-white/20 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gray-500/30 bg-white/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/10 via-gray-600/10 to-gray-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
+            <div className="group relative overflow-hidden rounded-3xl p-8 md:p-12 border border-white/20 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 bg-white/5">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-blue-600/10 to-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative flex flex-col gap-6 z-10">
-                <p className="text-gray-300 text-base md:text-lg relative z-10 leading-relaxed">
-                  Hello! I'm{" "}
-                  <strong className="text-white">Md Yeamin Chowdhury</strong>, a
-                  passionate MERN Stack Developer from Sylhet, Bangladesh. I
-                  specialize in <strong className="text-white">ReactJS</strong>{" "}
-                  and have a strong interest in frontend development, building
-                  modern, responsive, and user-friendly web applications. I
-                  completed my web development training from{" "}
-                  <strong className="text-white">Programming Hero</strong>,
-                  where I honed my skills in the full stack, including NodeJS,
-                  ExpressJS, MongoDB, and JavaScript. I love turning ideas into
-                  functional, interactive web solutions and constantly learning
-                  new technologies to stay ahead in the fast-paced world of web
-                  development.
+                <p className="text-white/80 text-base md:text-lg relative z-10 leading-relaxed">
+                  Hello! I'm <strong className="text-white">Md Yeamin Chowdhury</strong>, a passionate MERN Stack Developer from Sylhet, Bangladesh. I specialize in <strong className="text-white">ReactJS</strong> and have a strong interest in frontend development, building modern, responsive, and user-friendly web applications. I completed my web development training from <strong className="text-white">Programming Hero</strong>, where I honed my skills in the full stack, including NodeJS, ExpressJS, MongoDB, and JavaScript. I love turning ideas into functional, interactive web solutions and constantly learning new technologies to stay ahead in the fast-paced world of web development.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Contact Section */}
         <section className="min-h-screen flex items-center px-6 py-20">
           <div className="max-w-4xl mx-auto w-full">
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">
               Let's Connect
             </h2>
-
             <div className="backdrop-blur-xl bg-white/10 rounded-3xl p-12 border border-white/20 shadow-2xl">
               <div className="grid md:grid-cols-2 gap-8">
-                {[
-                  {
-                    Icon: Phone,
-                    text: "+8801701101422",
-                    href: "tel:+8801701101422",
-                    color: "from-gray-500 to-gray-600",
-                  },
-                  {
-                    Icon: Mail,
-                    text: "Contact via Email",
-                    href: "mailto:chowdhuryyeamin07@gmail.com",
-                    color: "from-gray-600 to-gray-700",
-                  },
-                  {
-                    Icon: MapPin,
-                    text: "Sylhet, Bangladesh",
-                    href: "https://www.google.com/maps?q=Sylhet,Bangladesh",
-                    color: "from-gray-500 to-gray-700",
-                  },
-                  {
-                    Icon: Github,
-                    text: "Contact via Discord",
-                    href: "https://discord.com/users/chowdhury_yeamin07",
-                    color: "from-gray-600 to-gray-800",
-                  },
+                {
+                [
+                  { Icon: Phone, text: "+8801701101422", href: "tel:+8801701101422", color: "from-blue-400 to-blue-600" },
+                  { Icon: Mail, text: "Contact via Email", href: "mailto:chowdhuryyeamin07@gmail.com", color: "from-purple-400 to-purple-600" },
+                  { Icon: MapPin, text: "Sylhet, Bangladesh", href: "https://www.google.com/maps?q=Sylhet,Bangladesh", color: "from-indigo-400 to-indigo-600" },
+                  { Icon: Github, text: "Contact via Discord", href: "https://discord.com/users/chowdhury_yeamin07", color: "from-pink-400 to-pink-600" },
                 ].map(({ Icon, text, href, color }, i) => (
                   <a
                     key={i}
                     href={href || "#"}
                     target={href.includes("discord") ? "_blank" : "_self"}
                     rel={href.includes("discord") ? "noopener noreferrer" : ""}
-                    className={`group flex items-center gap-4 p-6 rounded-xl backdrop-blur-md bg-gradient-to-r ${color} bg-opacity-20 border border-white/30 hover:scale-105 transition-all duration-300 hover:shadow-lg ${
-                      href ? "cursor-pointer" : "cursor-default"
-                    }`}
+                    className={`group flex items-center gap-4 p-6 rounded-xl backdrop-blur-md bg-gradient-to-r ${color} bg-opacity-20 border border-white/30 hover:scale-105 transition-all duration-300 hover:shadow-lg ${href ? "cursor-pointer" : "cursor-default"}`}
                   >
-                    <div
-                      className={`p-4 rounded-xl bg-gradient-to-r ${color} shadow-lg group-hover:rotate-12 transition-transform duration-300`}
-                    >
+                    <div className={`p-4 rounded-xl bg-gradient-to-r ${color} shadow-lg group-hover:rotate-12 transition-transform duration-300`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <span className="text-white font-semibold text-lg">
-                      {text}
-                    </span>
+                    <span className="text-white font-semibold text-lg">{text}</span>
                   </a>
                 ))}
               </div>
 
               <div className="mt-12 text-center">
-                <p className="text-gray-300 text-lg mb-6">
-                  Ready to bring your ideas to life with cutting-edge web
-                  development
+                <p className="text-white/80 text-lg mb-6">
+                  Ready to bring your ideas to life with cutting-edge web development
                 </p>
-                <a
-                  href="https://wa.me/8801701101422"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div className="inline-block px-8 py-4 bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 rounded-full text-white font-bold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer animate-pulse">
+                <a href="https://wa.me/8801701101422" target="_blank" rel="noopener noreferrer">
+                  <div className="inline-block px-8 py-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full text-white font-bold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer animate-pulse">
                     Get In Touch
                   </div>
                 </a>
@@ -483,13 +327,12 @@ const Portfolio = () => {
           </div>
         </section>
 
+        {/* Footer */}
         <footer className="py-12 px-6 text-center border-t border-white/10">
-          <p className="text-gray-400 text-lg">
-            Crafted with{" "}
-            <Heart className="w-5 h-5 inline-block text-gray-500 animate-pulse" />{" "}
-            by Md Yeamin Chowdhury
+          <p className="text-white/70 text-lg">
+            Crafted with <Heart className="w-5 h-5 inline-block text-pink-400 animate-pulse" /> by Md Yeamin Chowdhury
           </p>
-          <p className="text-gray-500 mt-2">
+          <p className="text-white/50 mt-2">
             Full Stack Developer | React.js Specialist | MERN Stack
           </p>
         </footer>
